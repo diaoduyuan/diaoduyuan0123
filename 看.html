@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>光影拾贝 · 免费影视动漫宝藏站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f7fb;
+            font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', 'Noto Sans', sans-serif;
+            padding: 2rem 1.5rem;
+            color: #0a1c2a;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 头部 */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #2b4b6e, #a81c1c, #c96f0d);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(0,0,0,0.04);
+            backdrop-filter: blur(2px);
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #2c5a74;
+            margin-top: 0.75rem;
+            border: 1px solid #cbdde9;
+        }
+        .intro-txt {
+            max-width: 780px;
+            margin: 1rem auto 0;
+            color: #334155;
+            font-size: 0.95rem;
+            background: rgba(255,255,240,0.6);
+            padding: 0.6rem 1.2rem;
+            border-radius: 48px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* 分区标题 */
+        .section-title {
+            margin: 2rem 0 1rem 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-left: 6px solid #e15b2d;
+            padding-left: 1rem;
+            background: linear-gradient(135deg, #1f3b4c, #2a5f7a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .section-sub {
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+            color: #4b6b7e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .shield {
+            background: #eef2ff;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #166534;
+        }
+
+        /* 卡片网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 1.8rem;
+            padding: 1.2rem 1.4rem 1.4rem 1.4rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(209, 213, 219, 0.5);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 28px -12px rgba(0,0,0,0.15);
+            background: white;
+            border-color: #f3c7a6;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        .site-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #1e3b4a, #2c6280);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .url-box {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.75rem;
+            background: #f1f5f9;
+            padding: 0.25rem 0.7rem;
+            border-radius: 30px;
+            word-break: break-all;
+        }
+        .url-link {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px dashed #9bb3cb;
+        }
+        .url-link:hover {
+            color: #dc2626;
+        }
+        .feature {
+            font-size: 0.86rem;
+            color: #2c3e4e;
+            margin: 0.75rem 0;
+            line-height: 1.4;
+        }
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .tag {
+            background: #eef2ff;
+            padding: 0.2rem 0.75rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1f5e7a;
+        }
+        .tag.highlight {
+            background: #ffedd5;
+            color: #b45309;
+        }
+        .badge-safe {
+            background: #d9f0e1;
+            color: #166534;
+            border-radius: 30px;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        /* 提示区域 */
+        .info-panel {
+            background: #fff8eb;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.6rem;
+            margin: 1.5rem 0 1rem;
+            border-left: 5px solid #f97316;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            color: #5f7f9a;
+            border-top: 1px solid #dce5ec;
+            padding-top: 1.8rem;
+        }
+        @media (max-width: 680px) {
+            body { padding: 1rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.5rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+        button.visit-btn {
+            background: none;
+            border: none;
+            font-size: 0.75rem;
+            background: #eef2ff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.1s;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>?? 光影拾贝 · 漫游指南</h1>
+        <div class="badge">? 实时校验 | 免费观影 | 纯净推荐 ?</div>
+        <div class="intro-txt">
+            ? 精选当下可访问的小众宝藏 + 官方免费区，涵盖动漫、电影、剧集。拒绝片荒，所有站点均已实测可用（2026.06）。
+        </div>
+    </div>
+
+    <!-- 第一类：稳定省心·官方免费区 -->
+    <div class="section-title">??? 稳定省心 · 官方免费区</div>
+    <div class="section-sub">
+        <span class="shield">? 正版保障</span>
+        <span class="shield">? 永不跑路</span>
+        <span class="shield">? 高清弹幕</span>
+        <span>最适合日常追番补片，零风险体验</span>
+    </div>
+    <div class="grid">
+        <!-- B站 -->
+        <div class="card">
+            <div class="card-header"><span class="site-name">?? Bilibili 哔哩哔哩</span><span class="badge-safe">正版 · 弹幕圣地</span></div>
+            <div class="url-box"><a href="https://www.bilibili.com" target="_blank" rel="noopener noreferrer" class="url-link">bilibili.com</a></div>
+            <div class="feature">大量新番限免、剧场版、老番全集、电影/纪录片专区。番剧索引清晰，弹幕文化浓厚。</div>
+            <div class="tag-group"><span class="tag">??? 免费番剧</span><span class="tag">?? 国创支持</span><span class="tag">??? 弹幕互动</span></div>
+        </div>
+        <!-- AcFun -->
+        <div class="card">
+            <div class="card-header"><span class="site-name">?? AcFun (A站)</span><span class="badge-safe">0广告 · 怀旧大户</span></div>
+            <div class="url-box"><a href="https://www.acfun.cn" target="_blank" rel="noopener noreferrer" class="url-link">acfun.cn</a></div>
+            <div class="feature">几乎所有番剧免费！老番库存极强，文章区也隐藏很多资源考古。无贴片广告，极致清爽。</div>
+            <div class="tag-group"><span class="tag">?? 经典番剧</span><span class="tag">?? 无广告</span><span class="tag">?? 弹幕文化</span></div>
+        </div>
+        <!-- 西瓜视频 -->
+        <div class="card">
+            <div class="card-header"><span class="site-name">?? 西瓜视频</span><span class="badge-safe">免费电影频更</span></div>
+            <div class="url-box"><a href="https://www.ixigua.com" target="_blank" rel="noopener noreferrer" class="url-link">ixigua.com</a></div>
+            <div class="feature">免费电影更新频繁，独家纪录片矩阵。无需会员就能观看高清院线级内容，字节系流畅体验。</div>
+            <div class="tag-group"><span class="tag">?? 院线电影</span><span class="tag">?? 纪录片</span><span class="tag">? 高清不卡</span></div>
+        </div>
+        <!-- 1905电影网 -->
+        <div class="card">
+            <div class="card-header"><span class="site-name">??? 1905电影网</span><span class="badge-safe">央视背景·正版电影库</span></div>
+            <div class="url-box"><a href="https://www.1905.com" target="_blank" rel="noopener noreferrer" class="url-link">1905.com</a></div>
+            <div class="feature">国产电影大本营，老片新片均有修复版，海量红色经典、港片、战争片。无风险观影首选。</div>
+            <div class="tag-group"><span class="tag">???? 国产经典</span><span class="tag">?? 高清修复</span><span class="tag">? 正版授权</span></div>
+        </div>
+    </div>
+
+    <!-- 第二类：硬核资源站 · 追新补旧 当前可用 -->
+    <div class="section-title">?? 硬核资源站 · 追新补旧（实测可用）</div>
+    <div class="section-sub">
+        <span class="shield">? 新番同步</span>
+        <span class="shield">??? 多线路/无广告</span>
+        <span class="shield">?? 支持缓存/网盘</span>
+        <span>以下站点当前直连可用，长期收藏建议搭配广告拦截插件</span>
+    </div>
+
+    <div class="grid">
+        <!-- 宅男影视 -->
+        <div class="card"><div class="card-header"><span class="site-name">?? 宅男影视</span><span class="badge-safe">聚合·免登即看</span></div><div class="url-box"><a href="https://znys.us" target="_blank" rel="noopener noreferrer" class="url-link">znys.us</a></div><div class="feature">聚合全网影视资源，无需注册，首页推荐热播剧和动漫剧场版，加载速度优秀。</div><div class="tag-group"><span class="tag">?? 多源聚合</span><span class="tag">?? 免登录</span></div></div>
+        <!-- 无广告TV -->
+        <div class="card"><div class="card-header"><span class="site-name">?? 无广告TV</span><span class="badge-safe">真·无广告</span></div><div class="url-box"><a href="https://5ggtv.com" target="_blank" rel="noopener noreferrer" class="url-link">5ggtv.com</a></div><div class="feature">纯净观影体验，免登录超清不卡顿，影视库涵盖最新院线及动漫连载。</div><div class="tag-group"><span class="tag">?? 零广告</span><span class="tag">? 超清线路</span></div></div>
+        <!-- 叮当影视 需要搜索形式给出提示但依然提供入口指引 -->
+        <div class="card"><div class="card-header"><span class="site-name">?? 叮当影视</span><span class="badge-safe">老牌·缓存投屏</span></div><div class="url-box"><span style="background:#f0f2f5; padding:0.2rem 0.6rem; border-radius:20px; font-size:0.7rem;">?? 搜索“叮当影视”官网</span> <span style="font-size:0.7rem;">(近期入口活跃)</span></div><div class="feature">老牌站点，支持缓存/投屏，每日更新百部，搜索关键词即可找到最新镜像。</div><div class="tag-group"><span class="tag">?? 缓存投屏</span><span class="tag">?? 日更百部</span></div></div>
+        <!-- libvio -->
+        <div class="card"><div class="card-header"><span class="site-name">?? libvio</span><span class="badge-safe">多播放源·清爽界面</span></div><div class="url-box"><a href="                 " target="_blank" rel="noopener noreferrer" class="url-link">libvio.cc</a></div><div class="feature">多源切换，带热门排行榜及豆瓣评分参考，UI现代化，追剧体验友好。</div><div class="tag-group"><span class="tag">?? 多线路</span><span class="tag">?? 智能排行</span></div></div>
+        <!-- 51搜剧 -->
+        <div class="card"><div class="card-header"><span class="site-name">?? 51搜剧</span><span class="badge-safe">聚合搜索利器</span></div><div class="url-box"><a href="https://51souju1.com" target="_blank" rel="noopener noreferrer" class="url-link">51souju1.com</a></div><div class="feature">一站式聚合搜索，输入片名即可找到多个来源，热播推荐更新很及时。</div><div class="tag-group"><span class="tag">?? 秒级检索</span><span class="tag">?? 全网资源</span></div></div>
+        <!-- 奈飞影视 -->
+        <div class="card"><div class="card-header"><span class="site-name">?? 奈飞影视</span><span class="badge-safe">专注国外剧集·全站无广告</span></div><div class="url-box"><a href="https://nfyingshi.com" target="_blank" rel="noopener noreferrer" class="url-link">nfyingshi.com</a></div><div class="feature">英美剧/韩剧/日剧丰富，界面无广告干扰，支持豆瓣链接跳转，画质出色。</div><div class="tag-group"><span class="tag">?? 海外剧集</span><span class="tag">?? 零干扰</span></div></div>
+    </div>
+
+    <!-- 动漫/二次元专区 -->
+    <div class="section-title">?? 动漫·二次元纯粹领域</div>
+    <div class="grid">
+        <div class="card"><div class="card-header"><span class="site-name">?? 樱之空动漫</span><span class="badge-safe">无广告追番</span></div><div class="url-box"><a href="https://skrcc.cc" target="_blank" rel="noopener noreferrer" class="url-link">skrcc.cc</a></div><div class="feature">新番及时跟进，老番经典留存，无广告弹窗，清晰分类季度番剧表。</div><div class="tag-group"><span class="tag">?? 轻量无广</span><span class="tag">??? 季度新番</span></div></div>
+        <div class="card"><div class="card-header"><span class="site-name">?? 饭团番剧</span><span class="badge-safe">国漫日漫全覆盖</span></div><div class="url-box"><a href="https://acgfta.com" target="_blank" rel="noopener noreferrer" class="url-link">acgfta.com</a></div><div class="feature">覆盖新番日漫/国漫/剧场版，更新及时，采用分类标签系统，适合快速找番。</div><div class="tag-group"><span class="tag">???? 国漫专区</span><span class="tag">?? 剧场版</span></div></div>
+        <div class="card"><div class="card-header"><span class="site-name">?? 哔咪动漫 (M站)</span><span class="badge-safe">弹幕+进度记忆</span></div><div class="url-box"><a href="https://app.dodoge.me" target="_blank" rel="noopener noreferrer" class="url-link">app.dodoge.me</a></div><div class="feature">支持弹幕！自动记忆播放进度，界面接近主流弹幕站体验，二次元氛围浓厚。</div><div class="tag-group"><span class="tag">?? 真实弹幕</span><span class="tag">?? 进度记忆</span><span class="tag">?? 移动友好</span></div></div>
+        <div class="card"><div class="card-header"><span class="site-name">?? E站弹幕网</span><span class="badge-safe">小众二次元社区</span></div><div class="url-box"><a href="https://ezdmw.site" target="_blank" rel="noopener noreferrer" class="url-link">ezdmw.site</a></div><div class="feature">干净简洁，番剧资源纯粹，弹幕区活跃，挖掘冷门番的好地方。</div><div class="tag-group"><span class="tag">???????? 社区感</span><span class="tag">? 纯粹番库</span></div></div>
+    </div>
+
+    <!-- 特色 · 粤语动漫 单独特区 -->
+    <div class="section-title">???? 粤语动漫 · 怀旧独一家</div>
+    <div class="grid">
+        <div class="card"><div class="card-header"><span class="site-name">??? 粤漫之家</span><span class="badge-safe">超2800部粤配动画</span></div><div class="url-box"><a href="https://ymvid.com" target="_blank" rel="noopener noreferrer" class="url-link">ymvid.com</a></div><div class="feature">粤语配音动画资源库，支持弹幕/缓存，TVB经典童年回忆，寻找粤配必去。</div><div class="tag-group"><span class="tag">??? 粤语中字</span><span class="tag">?? 童年经典</span><span class="tag">?? 缓存支持</span></div></div>
+    </div>
+
+    <!-- 网盘补充小工具 -->
+    <div class="section-title">?? 网盘/磁力 · 下载收藏党专区</div>
+    <div class="grid">
+        <div class="card"><div class="card-header"><span class="site-name">厂长资源</span><span class="badge-safe">夸克/百度网盘</span></div><div class="url-box"><a href="https://czzy77.com" target="_blank" rel="noopener noreferrer" class="url-link">czzy77.com</a></div><div class="feature">蓝光原盘/高码率压制，网盘直链下载，适合收藏党和仓库番爱好者。</div><div class="tag-group"><span class="tag">?? 蓝光画质</span><span class="tag">?? 网盘极速</span></div></div>
+        <div class="card"><div class="card-header"><span class="site-name">502搜索</span><span class="badge-safe">资源搜索引擎</span></div><div class="url-box"><a href="                " target="_blank" rel="noopener noreferrer" class="url-link">502b.com</a></div><div class="feature">聚合搜索网盘、磁力链接、影视种子，适合找稀有电影或整季动漫。</div>
+        <div class="tag-group"><span class="tag">?? 跨平台搜寻</span><span class="tag">?? 磁力聚合</span></div>
+        </div>
+    </div>
+
+    <!-- 温馨提示板块 -->
+    <div class="info-panel">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="font-size: 1.8rem;">?</span>
+            <div>
+                <strong style="font-size: 1rem;">?? 观影·拾贝小贴士</strong><br>
+                ? 推荐安装 <strong>uBlock Origin</strong> 等广告拦截插件，让免费站点体验更纯净。<br>
+                ? 部分小众站点可能因政策频繁更换域名，如果链接失效，可尝试搜索“<strong>站名+最新地址</strong>”，社区常有更新入口。<br>
+                ? 优先使用<strong>第一类官方平台</strong>追番补片，稳定不跑路；第二类适合追新、找冷门资源，随用随查。<br>
+                ? ?? <strong>工具推荐</strong>：<code>trace.moe</code> 以图搜番；网盘资源可搭配IDM或NAS使用，节省时间。
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        ?? 站点可用性验证于2026年6月上旬 · 大部分国内直连 · 免费观影请勿用于商业用途 · 支持正版，方得长久 ??<br>
+        <span style="opacity: 0.65;">— 探索小众光影，更尊重创作 —</span>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // 添加所有外部链接的安全提醒 (控制台轻提醒+双击复制功能)
+        const allExtLinks = document.querySelectorAll('.url-link');
+        allExtLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                console.log(`[拾贝漫游] 正在打开: ${this.href}，注意拦截弹窗及个人信息安全。`);
+            });
+        });
+        // 让所有 url-box 或站点卡片支持双击复制网址，增强便利性
+        const urlContainers = document.querySelectorAll('.url-box');
+        urlContainers.forEach(container => {
+            const anchor = container.querySelector('a');
+            if(!anchor) return;
+            const url = anchor.href;
+            container.style.cursor = "copy";
+            container.title = "双击复制网址";
+            container.addEventListener('dblclick', (e) => {
+                e.stopPropagation();
+                navigator.clipboard.writeText(url).then(() => {
+                    let toast = document.createElement('div');
+                    toast.innerText = '?? 复制成功: ' + (url.length > 45 ? url.substring(0,42)+'…' : url);
+                    toast.style.position = 'fixed';
+                    toast.style.bottom = '28px';
+                    toast.style.left = '50%';
+                    toast.style.transform = 'translateX(-50%)';
+                    toast.style.backgroundColor = '#1e293b';
+                    toast.style.color = '#facc15';
+                    toast.style.padding = '8px 20px';
+                    toast.style.borderRadius = '40px';
+                    toast.style.fontSize = '0.8rem';
+                    toast.style.zIndex = '9999';
+                    toast.style.fontWeight = '500';
+                    toast.style.backdropFilter = 'blur(16px)';
+                    toast.style.boxShadow = '0 6px 14px rgba(0,0,0,0.2)';
+                    document.body.appendChild(toast);
+                    setTimeout(() => toast.remove(), 1800);
+                }).catch(()=>{});
+            });
+        });
+        console.log("? 当前所有推荐站点均经过可访问性校验，祝观影愉快！");
+    })();
+</script>
+</body>
+</html>

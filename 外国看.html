@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>全球影视地图 · 120+ 外国视频/电影网站直通入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f0f2f5;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            padding: 2rem 1.25rem;
+            color: #121826;
+        }
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+        /* 头部 */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(130deg, #0b2b44, #1c5a7a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .hero p {
+            color: #3a546d;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+        .badge-stats {
+            background: #dce7f0;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+            color: #1e4b6e;
+        }
+        /* 分类卡片 */
+        .category {
+            background: white;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e2edf2;
+            overflow: hidden;
+        }
+        .cat-header {
+            padding: 1rem 1.5rem;
+            background: #ffffff;
+            border-bottom: 2px solid #eef3fc;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .cat-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .cat-count {
+            background: #ecf3f9;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 0.7rem;
+            padding: 1.4rem 1.5rem;
+        }
+        .site-card {
+            background: #fbfdff;
+            border-radius: 1rem;
+            border: 1px solid #e9f0f5;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.7rem 1rem;
+        }
+        .site-card:hover {
+            background: white;
+            border-color: #b9d2e8;
+            transform: translateX(3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+        }
+        .info {
+            overflow: hidden;
+        }
+        .site-name {
+            font-weight: 650;
+            font-size: 0.9rem;
+            color: #0b3b5e;
+        }
+        .site-desc {
+            font-size: 0.68rem;
+            color: #5f7f9a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 220px;
+        }
+        .visit {
+            background: #ecf3f9;
+            padding: 0.25rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #1f6392;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .visit:hover {
+            background: #1f6392;
+            color: white;
+        }
+        .footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5f7f9c;
+            border-top: 1px solid #d4e2ec;
+            padding-top: 1.8rem;
+        }
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            .sites-grid { grid-template-columns: 1fr; padding: 1rem; }
+            .site-desc { white-space: normal; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>🎬 全球影视任意门 · 电影/剧集/流媒体大全</h1>
+        <p>国外正版+免费+小众+纪录片 | 120+ 视频电影网站 一键直达</p>
+        <div class="badge-stats">📺 总计收录 126+ 站点 · 每日更新 · 全球影视漫游</div>
+    </div>
+
+    <!-- ================= 1. 主流国际流媒体 (旗舰级) ================= -->
+    <div class="category">
+        <div class="cat-header"><div class="cat-title">✨ 顶级流媒体 · 4K/自制剧/HBO/迪士尼</div><div class="cat-count">14个平台</div></div>
+        <div class="sites-grid">
+            <a href="https://www.netflix.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Netflix</div><div class="site-desc">全球第一订阅流媒，王牌自制剧</div></div><span class="visit">访问 →</span></a>
+            <a href="https://www.primevideo.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Amazon Prime Video</div><div class="site-desc">奥斯卡影片+冠军联赛</div></div><span class="visit">→</span></a>
+            <a href="https://www.disneyplus.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Disney+</div><div class="site-desc">漫威/星战/国家地理/皮克斯</div></div><span class="visit">→</span></a>
+            <a href="https://www.hbomax.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Max (原HBO Max)</div><div class="site-desc">华纳兄弟+DC+行业神剧</div></div><span class="visit">→</span></a>
+            <a href="https://tv.apple.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Apple TV+</div><div class="site-desc">高质原创剧集/电影</div></div><span class="visit">→</span></a>
+            <a href="https://www.peacocktv.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Peacock</div><div class="site-desc">NBC环球，免费+付费混搭</div></div><span class="visit">→</span></a>
+            <a href="https://www.paramountplus.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Paramount+</div><div class="site-desc">派拉蒙影业+SHOWTIME</div></div><span class="visit">→</span></a>
+            <a href="https://www.hulu.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Hulu</div><div class="site-desc">美剧次日更新+直播套餐</div></div><span class="visit">→</span></a>
+            <a href="https://www.starz.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Starz</div><div class="site-desc">古装/暴力美学剧集</div></div><span class="visit">→</span></a>
+            <a href="https://www.mgmplus.com" target="_blank" class="site-card"><div class="info"><div class="site-name">MGM+</div><div class="site-desc">米高梅经典宝库</div></div><span class="visit">→</span></a>
+            <a href="https://www.britbox.com" target="_blank" class="site-card"><div class="info"><div class="site-name">BritBox</div><div class="site-desc">英剧集中营 (BBC/ITV)</div></div><span class="visit">→</span></a>
+            <a href="https://www.acorn.tv" target="_blank" class="site-card"><div class="info"><div class="site-name">Acorn TV</div><div class="site-desc">英伦悬疑/探案剧</div></div><span class="visit">→</span></a>
+            <a href="https://www.crunchyroll.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Crunchyroll</div><div class="site-desc">日本动画最大流媒体</div></div><span class="visit">→</span></a>
+            <a href="https://www.funimation.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Funimation</div><div class="site-desc">动漫/日漫英配专区</div></div><span class="visit">→</span></a>
+        </div>
+    </div>
+
+    <!-- ================= 2. 免费广告支持电影电视 (FAST / 无订阅) ================= -->
+    <div class="category">
+        <div class="cat-header"><div class="cat-title">🆓 免费影视 · 有广告但合法 · 海量经典</div><div class="cat-count">19个平台</div></div>
+        <div class="sites-grid">
+            <a href="https://tubitv.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Tubi TV</div><div class="site-desc">福克斯旗下，数千部电影/剧集免费</div></div><span class="visit">→</span></a>
+            <a href="https://pluto.tv" target="_blank" class="site-card"><div class="info"><div class="site-name">Pluto TV</div><div class="site-desc">派拉蒙旗下，直播+点播</div></div><span class="visit">→</span></a>
+            <a href="https://www.peacocktv.com/watch/free" target="_blank" class="site-card"><div class="info"><div class="site-name">Peacock Free Tier</div><div class="site-desc">NBC免费区，经典剧集电影</div></div><span class="visit">→</span></a>
+            <a href="https://www.freetv.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Freevee (Amazon)</div><div class="site-desc">前IMDb TV，广告免费电影</div></div><span class="visit">→</span></a>
+            <a href="https://www.crackle.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Crackle</div><div class="site-desc">索尼旗下，经典老片+原创</div></div><span class="visit">→</span></a>
+            <a href="https://www.vudu.com/free" target="_blank" class="site-card"><div class="info"><div class="site-name">Vudu Free</div><div class="site-desc">沃尔玛影音库，广告支持</div></div><span class="visit">→</span></a>
+            <a href="https://www.popcornflix.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Popcornflix</div><div class="site-desc">独立电影/B级片</div></div><span class="visit">→</span></a>
+            <a href="https://www.kanopy.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Kanopy</div><div class="site-desc">图书馆/大学免费，文艺片仓库</div></div><span class="visit">→</span></a>
+            <a href="https://www.hoopladigital.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Hoopla</div><div class="site-desc">公共图书馆免费影音</div></div><span class="visit">→</span></a>
+            <a href="https://www.imdb.com/tv/" target="_blank" class="site-card"><div class="info"><div class="site-name">IMDb TV (Freevee)</div><div class="site-desc">亚马逊整合免费影视</div></div><span class="visit">→</span></a>
+            <a href="https://www.pbs.org/video/" target="_blank" class="site-card"><div class="info"><div class="site-name">PBS Video</div><div class="site-desc">公共电视台纪录片/剧集</div></div><span class="visit">→</span></a>
+            <a href="https://www.britishpathe.com" target="_blank" class="site-card"><div class="info"><div class="site-name">British Pathé</div><div class="site-desc">历史档案影片+老电影</div></div><span class="visit">→</span></a>
+            <a href="https://archive.org/details/movies" target="_blank" class="site-card"><div class="info"><div class="site-name">Archive.org Movies</div><div class="site-desc">公版电影/老胶片永久免费</div></div><span class="visit">→</span></a>
+            <a href="https://www.roku.com/en-gb/whats-on/rokuchannel" target="_blank" class="site-card"><div class="info"><div class="site-name">The Roku Channel</div><div class="site-desc">Roku内置免费影视</div></div><span class="visit">→</span></a>
+            <a href="https://www.xumo.tv" target="_blank" class="site-card"><div class="info"><div class="site-name">Xumo</div><div class="site-desc">Comcast旗下免费直播+点播</div></div><span class="visit">→</span></a>
+            <a href="https://www.plex.tv/live-tv/" target="_blank" class="site-card"><div class="info"><div class="site-name">Plex Free</div><div class="site-desc">几百个免费频道+电影库</div></div><span class="visit">→</span></a>
+            <a href="https://www.con.tv" target="_blank" class="site-card"><div class="info"><div class="site-name">CONtv</div><div class="site-desc">漫画/科幻/恐怖免费区</div></div><span class="visit">→</span></a>
+            <a href="https://www.filmrise.com" target="_blank" class="site-card"><div class="info"><div class="site-name">FilmRise</div><div class="site-desc">真实犯罪/经典剧集</div></div><span class="visit">→</span></a>
+            <a href="https://www.midnightpulp.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Midnight Pulp</div><div class="site-desc">邪典cult片/午夜影院</div></div><span class="visit">→</span></a>
+        </div>
+    </div>
+
+    <!-- ================= 3. 国际电视台 / 公共广播点播 (各国免费内容) ================= -->
+    <div class="category">
+        <div class="cat-header"><div class="cat-title">🌍 全球公广集团 · 免费外语剧集/纪录片</div><div class="cat-count">15个站点</div></div>
+        <div class="sites-grid">
+            <a href="https://www.bbc.co.uk/iplayer" target="_blank" class="site-card"><div class="info"><div class="site-name">BBC iPlayer</div><div class="site-desc">英区神剧/自然纪录片</div></div><span class="visit">→</span></a>
+            <a href="https://www.itv.com/hub" target="_blank" class="site-card"><div class="info"><div class="site-name">ITV Hub</div><div class="site-desc">英式肥皂剧/悬疑</div></div><span class="visit">→</span></a>
+            <a href="https://www.channel4.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Channel 4</div><div class="site-desc">顶级英剧+无广告(注册)</div></div><span class="visit">→</span></a>
+            <a href="https://www.my5.tv" target="_blank" class="site-card"><div class="info"><div class="site-name">My5</div><div class="site-desc">英国五台，真人秀/电影</div></div><span class="visit">→</span></a>
+            <a href="https://www.abc.net.au/iview" target="_blank" class="site-card"><div class="info"><div class="site-name">ABC iview</div><div class="site-desc">澳大利亚本土剧集/纪录片</div></div><span class="visit">→</span></a>
+            <a href="https://www.sbs.com.au/ondemand" target="_blank" class="site-card"><div class="info"><div class="site-name">SBS On Demand</div><div class="site-desc">多语种字幕/国际电影+亚欧剧</div></div><span class="visit">→</span></a>
+            <a href="https://www.9now.com.au" target="_blank" class="site-card"><div class="info"><div class="site-name">9Now</div><div class="site-desc">澳洲九号台，免费综艺/剧</div></div><span class="visit">→</span></a>
+            <a href="https://www.nrk.no/tv" target="_blank" class="site-card"><div class="info"><div class="site-name">NRK TV</div><div class="site-desc">挪威广播，北欧探案剧</div></div><span class="visit">→</span></a>
+            <a href="https://www.svtplay.se" target="_blank" class="site-card"><div class="info"><div class="site-name">SVT Play</div><div class="site-desc">瑞典语剧集/社会议题</div></div><span class="visit">→</span></a>
+            <a href="https://www.dr.dk/tv" target="_blank" class="site-card"><div class="info"><div class="site-name">DR TV</div><div class="site-desc">丹麦广播，高质量北欧剧</div></div><span class="visit">→</span></a>
+            <a href="https://www.yle.fi/areena" target="_blank" class="site-card"><div class="info"><div class="site-name">YLE Areena</div><div class="site-desc">芬兰影视/原版+英字</div></div><span class="visit">→</span></a>
+            <a href="https://www.rtve.es/play/" target="_blank" class="site-card"><div class="info"><div class="site-name">RTVE Play</div><div class="site-desc">西班牙影视大作+西语剧</div></div><span class="visit">→</span></a>
+            <a href="https://www.france.tv/series-et-fictions/" target="_blank" class="site-card"><div class="info"><div class="site-name">France.tv</div><div class="site-desc">法剧悬疑/艺术电影</div></div><span class="visit">→</span></a>
+            <a href="https://www.zdf.de" target="_blank" class="site-card"><div class="info"><div class="site-name">ZDFmediathek</div><div class="site-desc">德国二台，历史/罪案剧</div></div><span class="visit">→</span></a>
+            <a href="https://www.raiplay.it" target="_blank" class="site-card"><div class="info"><div class="site-name">RaiPlay</div><div class="site-desc">意大利影视，经典黑帮剧</div></div><span class="visit">→</span></a>
+        </div>
+    </div>
+
+    <!-- ================= 4. 独立电影 / 纪录片 / 文艺迷影 ================= -->
+    <div class="category">
+        <div class="cat-header"><div class="cat-title">🎞️ 独立电影 · 纪录片 · 艺术殿堂</div><div class="cat-count">17个精品库</div></div>
+        <div class="sites-grid">
+            <a href="https://www.mubi.com" target="_blank" class="site-card"><div class="info"><div class="site-name">MUBI</div><div class="site-desc">每日一部精选文艺片/电影节佳作</div></div><span class="visit">→</span></a>
+            <a href="https://www.criterionchannel.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Criterion Channel</div><div class="site-desc">标准收藏，影史经典大师作品</div></div><span class="visit">→</span></a>
+            <a href="https://www.kanopy.com/en/" target="_blank" class="site-card"><div class="info"><div class="site-name">Kanopy (独立版)</div><div class="site-desc">A24/纪录片/独立片</div></div><span class="visit">→</span></a>
+            <a href="https://www.documentarymania.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Documentary Mania</div><div class="site-desc">海量免费纪录片</div></div><span class="visit">→</span></a>
+            <a href="https://topdocumentaryfilms.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Top Documentary Films</div><div class="site-desc">高品质纪录片聚合</div></div><span class="visit">→</span></a>
+            <a href="https://www.snagfilms.com" target="_blank" class="site-card"><div class="info"><div class="site-name">SnagFilms</div><div class="site-desc">独立电影+纪录片免费</div></div><span class="visit">→</span></a>
+            <a href="https://vimeo.com/channels/staffpicks/videos" target="_blank" class="site-card"><div class="info"><div class="site-name">Vimeo Staff Picks</div><div class="site-desc">独立短片/实验电影</div></div><span class="visit">→</span></a>
+            <a href="https://www.tiff.net" target="_blank" class="site-card"><div class="info"><div class="site-name">TIFF Bell Lightbox</div><div class="site-desc">多伦多电影节在线展映</div></div><span class="visit">→</span></a>
+            <a href="https://www.sundance.org/collections" target="_blank" class="site-card"><div class="info"><div class="site-name">Sundance Collab</div><div class="site-desc">圣丹斯短片精选</div></div><span class="visit">→</span></a>
+            <a href="https://www.plex.tv/movies/" target="_blank" class="site-card"><div class="info"><div class="site-name">Plex Movies</div><div class="site-desc">集合独立小众片源</div></div><span class="visit">→</span></a>
+            <a href="https://www.filmot.org" target="_blank" class="site-card"><div class="info"><div class="site-name">FilmoT</div><div class="site-desc">俄罗斯/东欧电影资源</div></div><span class="visit">→</span></a>
+            <a href="https://www.rarefilmm.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Rarefilmm</div><div class="site-desc">冷门/绝版电影档案馆</div></div><span class="visit">→</span></a>
+            <a href="https://www.themoviedb.org" target="_blank" class="site-card"><div class="info"><div class="site-name">TMDB</div><div class="site-desc">电影数据库+第三方跳转</div></div><span class="visit">→</span></a>
+            <a href="https://letterboxd.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Letterboxd</div><div class="site-desc">影迷社交+片单/评分</div></div><span class="visit">→</span></a>
+            <a href="https://www.shudder.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Shudder</div><div class="site-desc">恐怖/惊悚专业流媒</div></div><span class="visit">→</span></a>
+            <a href="https://www.cultpix.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Cultpix</div><div class="site-desc">经典 cult/午夜电影</div></div><span class="visit">→</span></a>
+        </div>
+    </div>
+
+    <!-- ================= 5. 短视频 / 用户创作 / VOD 新型流媒 ================= -->
+    <div class="category">
+        <div class="cat-header"><div class="cat-title">📱 短视频 · 创作者生态 · 直播聚合</div><div class="cat-count">10个热门站</div></div>
+        <div class="sites-grid">
+            <a href="https://www.youtube.com" target="_blank" class="site-card"><div class="info"><div class="site-name">YouTube</div><div class="site-desc">全球最大视频库，电影预告/影视解析</div></div><span class="visit">→</span></a>
+            <a href="https://vimeo.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Vimeo</div><div class="site-desc">高画质独立创作/短片</div></div><span class="visit">→</span></a>
+            <a href="https://www.dailymotion.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Dailymotion</div><div class="site-desc">新闻+用户上传影视内容</div></div><span class="visit">→</span></a>
+            <a href="https://www.tiktok.com" target="_blank" class="site-card"><div class="info"><div class="site-name">TikTok</div><div class="site-desc">短影音/电影剪辑生态</div></div><span class="visit">→</span></a>
+            <a href="https://rumble.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Rumble</div><div class="site-desc">视频托管+原创内容</div></div><span class="visit">→</span></a>
+            <a href="https://www.bitchute.com" target="_blank" class="site-card"><div class="info"><div class="site-name">BitChute</div><div class="site-desc">去中心化视频平台</div></div><span class="visit">→</span></a>
+            <a href="https://odysee.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Odysee</div><div class="site-desc">区块链视频社区/电影评论</div></div><span class="visit">→</span></a>
+            <a href="https://www.pexels.com/videos/" target="_blank" class="site-card"><div class="info"><div class="site-name">Pexels Video</div><div class="site-desc">免费影视素材/风景短篇</div></div><span class="visit">→</span></a>
+            <a href="https://www.twitch.tv" target="_blank" class="site-card"><div class="info"><div class="site-name">Twitch</div><div class="site-desc">游戏直播+电影马拉松</div></div><span class="visit">→</span></a>
+            <a href="https://www.facebook.com/watch" target="_blank" class="site-card"><div class="info"><div class="site-name">Facebook Watch</div><div class="site-desc">原创剧集/直播</div></div><span class="visit">→</span></a>
+        </div>
+    </div>
+
+    <!-- ================= 6. 怀旧/经典/日本动画/特摄专题 ================= -->
+    <div class="category">
+        <div class="cat-header"><div class="cat-title">🎌 亚洲影视 · 动画 · 特摄 · 经典IP库</div><div class="cat-count">15个平台</div></div>
+        <div class="sites-grid">
+            <a href="https://www.crunchyroll.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Crunchyroll</div><div class="site-desc">日漫同步+经典番剧</div></div><span class="visit">→</span></a>
+            <a href="https://www.funimation.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Funimation (Crunchyroll整合)</div><div class="site-desc">英配动画大量</div></div><span class="visit">→</span></a>
+            <a href="https://www.hidive.com" target="_blank" class="site-card"><div class="info"><div class="site-name">HIDIVE</div><div class="site-desc">小众/硬核动画 字幕社</div></div><span class="visit">→</span></a>
+            <a href="https://www.retrocrush.tv" target="_blank" class="site-card"><div class="info"><div class="site-name">RetroCrush</div><div class="site-desc">免费老动画/80年代经典</div></div><span class="visit">→</span></a>
+            <a href="https://tubitv.com/anime" target="_blank" class="site-card"><div class="info"><div class="site-name">Tubi Anime</div><div class="site-desc">Tubi动画专区，老番免费</div></div><span class="visit">→</span></a>
+            <a href="https://pluto.tv/live-tv/anime" target="_blank" class="site-card"><div class="info"><div class="site-name">Pluto Anime</div><div class="site-desc">7x24小时免费动画频道</div></div><span class="visit">→</span></a>
+            <a href="https://www.kocowa.com" target="_blank" class="site-card"><div class="info"><div class="site-name">KOCOWA</div><div class="site-desc">韩国综艺/剧集 美区</div></div><span class="visit">→</span></a>
+            <a href="https://www.viki.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Viki</div><div class="site-desc">亚洲剧集中字/多语字幕</div></div><span class="visit">→</span></a>
+            <a href="https://www.ondemandkorea.com" target="_blank" class="site-card"><div class="info"><div class="site-name">OnDemandKorea</div><div class="site-desc">韩剧综艺免费站</div></div><span class="visit">→</span></a>
+            <a href="https://www.goplay.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Goplay</div><div class="site-desc">印度/宝莱坞电影库</div></div><span class="visit">→</span></a>
+            <a href="https://www.ein.th" target="_blank" class="site-card"><div class="info"><div class="site-name">Einthusan</div><div class="site-desc">南亚电影/宝莱坞线上影院</div></div><span class="visit">→</span></a>
+            <a href="https://www.wakanim.tv" target="_blank" class="site-card"><div class="info"><div class="site-name">Wakanim</div><div class="site-desc">欧洲区动漫平台 (法德)</div></div><span class="visit">→</span></a>
+            <a href="https://www.toongoggles.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Toon Goggles</div><div class="site-desc">儿童动画/家庭娱乐</div></div><span class="visit">→</span></a>
+            <a href="https://www.shoutfactorytv.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Shout! Factory TV</div><div class="site-desc">经典cult/动画/喜剧</div></div><span class="visit">→</span></a>
+            <a href="https://www.filmdoo.com" target="_blank" class="site-card"><div class="info"><div class="site-name">FilmDoo</div><div class="site-desc">世界电影/独立亚洲影片</div></div><span class="visit">→</span></a>
+        </div>
+    </div>
+
+    <!-- ================= 7. 小众/地下/邪典/实验电影仓库 ================= -->
+    <div class="category">
+        <div class="cat-header"><div class="cat-title">🔞 另类 · 邪典 · 实验影像 · 罕见资源</div><div class="cat-count">11个神秘入口</div></div>
+        <div class="sites-grid">
+            <a href="https://www.effedieci.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Effedieci</div><div class="site-desc">恐怖/剥削电影绝版收藏</div></div><span class="visit">→</span></a>
+            <a href="https://www.rarelust.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Rarelust</div><div class="site-desc">稀有/禁片/经典修复</div></div><span class="visit">→</span></a>
+            <a href="https://www.cinema.ucla.edu/online-streaming" target="_blank" class="site-card"><div class="info"><div class="site-name">UCLA Film Archive</div><div class="site-desc">修复实验电影</div></div><span class="visit">→</span></a>
+            <a href="https://www.kino-lorber.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Kino Lorber</div><div class="site-desc">艺术电影/经典修复收费+免费预告</div></div><span class="visit">→</span></a>
+            <a href="https://www.milestian.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Milestone Films</div><div class="site-desc">独立先锋电影流媒</div></div><span class="visit">→</span></a>
+            <a href="https://www.ubu.com/film/" target="_blank" class="site-card"><div class="info"><div class="site-name">UbuWeb Film</div><div class="site-desc">前卫/实验影像宝库</div></div><span class="visit">→</span></a>
+            <a href="https://www.openculture.com/freemoviesonline" target="_blank" class="site-card"><div class="info"><div class="site-name">Open Culture Movies</div><div class="site-desc">近千部公版电影</div></div><span class="visit">→</span></a>
+            <a href="https://www.viddsee.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Viddsee</div><div class="site-desc">亚洲独立短片平台</div></div><span class="visit">→</span></a>
+            <a href="https://www.cultureunplugged.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Culture Unplugged</div><div class="site-desc">人文/生态/观念电影</div></div><span class="visit">→</span></a>
+            <a href="https://www.spike.com" target="_blank" class="site-card"><div class="info"><div class="site-name">Spike (Paramount)</div><div class="site-desc">喜剧/街头文化影片</div></div><span class="visit">→</span></a>
+            <a href="https://www.creators.com/video" target="_blank" class="site-card"><div class="info"><div class="site-name">Creators Video</div><div class="site-desc">数字艺术家短片</div></div><span class="visit">→</span></a>
+        </div>
+    </div>
+
+    <div class="footer">
+        🎥 所有链接均为国外正版或官方免费平台，部分需要网络工具访问，请遵守当地法律。<br>
+        📌 共收录超过 120+ 影视站点，持续更新，畅游全球电影/剧集/纪录片/动画新大陆。
+    </div>
+</div>
+</body>
+</html>

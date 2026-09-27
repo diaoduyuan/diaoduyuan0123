@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>学术参考 · 领域导航 · 120+ 论文资料网站</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f3f8;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .academic-hub {
+      max-width: 1600px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(4px);
+      border-radius: 3.5rem 3.5rem 2.5rem 2.5rem;
+      box-shadow: 0 24px 48px -16px rgba(0, 20, 40, 0.25),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.8);
+      padding: 2.8rem 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.2s ease;
+    }
+
+    .header-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 3px solid rgba(30, 60, 114, 0.12);
+      padding-bottom: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: #0b1c33;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    h1 small {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #2e4a6a;
+      margin-left: 0.2rem;
+      opacity: 0.8;
+      letter-spacing: 0.2px;
+      background: rgba(60, 100, 160, 0.06);
+      padding: 0.1rem 1rem 0.1rem 0.8rem;
+      border-radius: 40px;
+      border-left: 2px solid #9bb7d9;
+    }
+
+    .sub-tag {
+      font-size: 0.95rem;
+      color: #2c577e;
+      background: rgba(200, 220, 245, 0.3);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid rgba(70, 130, 200, 0.1);
+      backdrop-filter: blur(2px);
+      letter-spacing: 0.2px;
+    }
+
+    /* 领域分类标题 */
+    .category-section {
+      margin-top: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .category-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0b2a4a;
+      letter-spacing: -0.3px;
+      border-left: 6px solid #2a6b9c;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .category-title span {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #3f5a7a;
+      opacity: 0.7;
+      letter-spacing: 0.2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(2px);
+      border-radius: 1.8rem;
+      padding: 1.4rem 1rem 1.2rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02), 0 1px 6px rgba(0, 20, 40, 0.04);
+      transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1);
+      border: 1px solid rgba(200, 215, 235, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 32px -12px rgba(0, 30, 60, 0.18);
+      background: #ffffff;
+      border-color: rgba(60, 130, 210, 0.18);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+      border-bottom: 1px dashed #d0ddeb;
+      padding-bottom: 0.4rem;
+      width: 100%;
+    }
+
+    .card-header span {
+      font-size: 1.5rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.02));
+      flex-shrink: 0;
+    }
+
+    .card-header h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0b2a4a;
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+    }
+
+    .card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      background: #eaf1fc;
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.78rem;
+      color: #1c4b7a;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+      margin-top: 0.2rem;
+      width: 100%;
+      text-align: center;
+      letter-spacing: 0.2px;
+      backdrop-filter: blur(2px);
+      background: rgba(230, 242, 255, 0.5);
+      word-break: break-all;
+    }
+
+    .card a:hover {
+      background: #1a4b7a;
+      color: white;
+      border-color: #1a4b7a;
+      box-shadow: 0 6px 12px -6px rgba(20, 80, 150, 0.3);
+      transform: scale(1.01);
+    }
+
+    .card a i {
+      font-style: normal;
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    .footer-note {
+      margin-top: 2.8rem;
+      color: #3f5a7a;
+      font-size: 0.9rem;
+      text-align: center;
+      border-top: 1px solid rgba(60, 100, 150, 0.1);
+      padding-top: 1.8rem;
+      letter-spacing: 0.3px;
+      opacity: 0.75;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem 1.2rem;
+    }
+
+    .footer-note span {
+      display: inline-block;
+    }
+
+    .footer-note a {
+      color: #1f4b7a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted rgba(30, 70, 130, 0.2);
+      transition: border 0.2s;
+    }
+
+    .footer-note a:hover {
+      border-bottom-color: #1f4b7a;
+      opacity: 1;
+    }
+
+    /* 领域分类颜色标识 */
+    .category-economics .category-title { border-left-color: #1a7a5a; }
+    .category-culture .category-title { border-left-color: #9b4a7a; }
+    .category-politics .category-title { border-left-color: #8b2f2f; }
+    .category-law .category-title { border-left-color: #4a6a9a; }
+    .category-society .category-title { border-left-color: #c07a2a; }
+    .category-tech .category-title { border-left-color: #2a6a8a; }
+    .category-environment .category-title { border-left-color: #2a8a5a; }
+    .category-education .category-title { border-left-color: #7a5a9a; }
+    .category-history .category-title { border-left-color: #8a6a3a; }
+    .category-philosophy .category-title { border-left-color: #5a4a7a; }
+    .category-communication .category-title { border-left-color: #2a7a8a; }
+    .category-military .category-title { border-left-color: #6a4a3a; }
+
+    @media (max-width: 760px) {
+      .academic-hub {
+        padding: 1.8rem 1.2rem;
+        border-radius: 2.5rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+      }
+      h1 small {
+        font-size: 0.9rem;
+        margin-left: 0;
+        padding-left: 0.5rem;
+        border-left: 2px solid #9bb7d9;
+        border-radius: 0 30px 30px 0;
+      }
+      .sub-tag {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.8rem;
+        margin-top: 0.2rem;
+      }
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+        gap: 0.9rem;
+      }
+      .card {
+        padding: 1rem 0.7rem;
+      }
+      .card-header h2 {
+        font-size: 0.9rem;
+      }
+      .card a {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
+      }
+      .category-title {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0.8rem 0.5rem;
+      }
+      .academic-hub {
+        padding: 1rem 0.6rem;
+        border-radius: 1.8rem;
+      }
+      .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+      }
+      .card a {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.3rem;
+      }
+      .card-header span {
+        font-size: 1.2rem;
+      }
+      .card-header h2 {
+        font-size: 0.75rem;
+      }
+      .footer-note {
+        font-size: 0.7rem;
+        gap: 0.2rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="academic-hub">
+    <div class="header-section">
+      <h1>
+        <span>📚 学术参考</span>
+        <small>· 120+ 论文资料网站</small>
+      </h1>
+      <div class="sub-tag">
+        ⚡ 按领域导航 · 经济 · 文化 · 政治 · 法律 · 社会 · 科技 · 环境 · 教育 · 历史 · 哲学 · 传媒 · 军事
+      </div>
+    </div>
+
+    <!-- ========== 经济 Economics ========== -->
+    <div class="category-section category-economics">
+      <div class="category-title">
+        💹 经济 · 金融 · 贸易
+        <span>· 宏观经济 · 产业 · 商业</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>📊</span><h2>国家统计局</h2></div><a href="https://www.stats.gov.cn" target="_blank">stats.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>🏦</span><h2>中国人民银行</h2></div><a href="https://www.pbc.gov.cn" target="_blank">pbc.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>📈</span><h2>IMF 国际货币基金组织</h2></div><a href="https://www.imf.org" target="_blank">imf.org</a></div>
+        <div class="card"><div class="card-header"><span>📈</span><h2>World Bank 世界银行</h2></div><a href="https://www.worldbank.org" target="_blank">worldbank.org</a></div>
+        <div class="card"><div class="card-header"><span>📈</span><h2>WTO 世界贸易组织</h2></div><a href="https://www.wto.org" target="_blank">wto.org</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>OECD 经合组织</h2></div><a href="https://www.oecd.org" target="_blank">oecd.org</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>美联储经济数据 FRED</h2></div><a href="https://fred.stlouisfed.org" target="_blank">fred.stlouisfed.org</a></div>
+        <div class="card"><div class="card-header"><span>📘</span><h2>麦肯锡</h2></div><a href="https://www.mckinsey.com" target="_blank">mckinsey.com</a></div>
+        <div class="card"><div class="card-header"><span>📐</span><h2>德勤</h2></div><a href="https://www.deloitte.com" target="_blank">deloitte.com</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>BCG</h2></div><a href="https://www.bcg.com" target="_blank">bcg.com</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>贝恩</h2></div><a href="https://www.bain.com" target="_blank">bain.com</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>普华永道</h2></div><a href="https://www.pwc.com" target="_blank">pwc.com</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>安永</h2></div><a href="https://www.ey.com" target="_blank">ey.com</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>毕马威</h2></div><a href="https://home.kpmg" target="_blank">home.kpmg</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>中国商务新闻网</h2></div><a href="https://www.comnews.cn" target="_blank">comnews.cn</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>Bloomberg 彭博社</h2></div><a href="https://www.bloomberg.com" target="_blank">bloomberg.com</a></div>
+        <div class="card"><div class="card-header"><span>📊</span><h2>Reuters 路透社</h2></div><a href="https://www.reuters.com" target="_blank">reuters.com</a></div>
+        <div class="card"><div class="card-header"><span>📈</span><h2>The Economist 经济学人</h2></div><a href="https://www.economist.com" target="_blank">economist.com</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 文化 Culture ========== -->
+    <div class="category-section category-culture">
+      <div class="category-title">
+        🎭 文化 · 艺术 · 文学 · 人类学
+        <span>· 文化遗产 · 语言 · 传媒</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>🎨</span><h2>中国非物质文化遗产网</h2></div><a href="https://www.ihchina.cn" target="_blank">ihchina.cn</a></div>
+        <div class="card"><div class="card-header"><span>📖</span><h2>中国国家图书馆</h2></div><a href="https://www.nlc.cn" target="_blank">nlc.cn</a></div>
+        <div class="card"><div class="card-header"><span>📖</span><h2>中国文字博物馆</h2></div><a href="https://www.wzbwg.com" target="_blank">wzbwg.com</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Project MUSE</h2></div><a href="https://muse.jhu.edu" target="_blank">muse.jhu.edu</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>JSTOR (人文社科)</h2></div><a href="https://www.jstor.org" target="_blank">jstor.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Taylor & Francis (人文)</h2></div><a href="https://www.tandfonline.com" target="_blank">tandfonline.com</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>SAGE Journals (文化研究)</h2></div><a href="https://journals.sagepub.com" target="_blank">journals.sagepub.com</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Wiley Online Library</h2></div><a href="https://onlinelibrary.wiley.com" target="_blank">onlinelibrary.wiley.com</a></div>
+        <div class="card"><div class="card-header"><span>📰</span><h2>中国日报 (文化版)</h2></div><a href="https://www.chinadaily.com.cn" target="_blank">chinadaily.com.cn</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 政治 Politics ========== -->
+    <div class="category-section category-politics">
+      <div class="category-title">
+        🏛️ 政治 · 国际关系 · 公共行政
+        <span>· 外交 · 政策 · 治理</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>🏛️</span><h2>人民网</h2></div><a href="https://www.people.com.cn" target="_blank">people.com.cn</a></div>
+        <div class="card"><div class="card-header"><span>🇺🇳</span><h2>UN 联合国</h2></div><a href="https://www.un.org" target="_blank">un.org</a></div>
+        <div class="card"><div class="card-header"><span>🇺🇳</span><h2>UNCTAD 贸发会议</h2></div><a href="https://unctad.org" target="_blank">unctad.org</a></div>
+        <div class="card"><div class="card-header"><span>🇺🇳</span><h2>UNESCO 教科文组织</h2></div><a href="https://www.unesco.org" target="_blank">unesco.org</a></div>
+        <div class="card"><div class="card-header"><span>🇪🇺</span><h2>EU 欧盟</h2></div><a href="https://european-union.europa.eu" target="_blank">european-union.europa.eu</a></div>
+        <div class="card"><div class="card-header"><span>🇺🇸</span><h2>US State Department</h2></div><a href="https://www.state.gov" target="_blank">state.gov</a></div>
+        <div class="card"><div class="card-header"><span>🇬🇧</span><h2>UK Parliament</h2></div><a href="https://www.parliament.uk" target="_blank">parliament.uk</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Council on Foreign Relations</h2></div><a href="https://www.cfr.org" target="_blank">cfr.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Brookings Institution</h2></div><a href="https://www.brookings.edu" target="_blank">brookings.edu</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Chatham House</h2></div><a href="https://www.chathamhouse.org" target="_blank">chathamhouse.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Carnegie Endowment</h2></div><a href="https://carnegieendowment.org" target="_blank">carnegieendowment.org</a></div>
+        <div class="card"><div class="card-header"><span>📰</span><h2>南华早报 (政治)</h2></div><a href="https://www.scmp.com" target="_blank">scmp.com</a></div>
+        <div class="card"><div class="card-header"><span>📰</span><h2>环球时报</h2></div><a href="https://www.globaltimes.cn" target="_blank">globaltimes.cn</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 法律 Law ========== -->
+    <div class="category-section category-law">
+      <div class="category-title">
+        ⚖️ 法律 · 法学 · 司法
+        <span>· 国际法 · 宪法 · 判例</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>⚖️</span><h2>最高人民法院</h2></div><a href="https://www.court.gov.cn" target="_blank">court.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>⚖️</span><h2>国家法律法规数据库</h2></div><a href="https://flk.npc.gov.cn" target="_blank">flk.npc.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>⚖️</span><h2>中国裁判文书网</h2></div><a href="https://wenshu.court.gov.cn" target="_blank">wenshu.court.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>⚖️</span><h2>中国知识产权网</h2></div><a href="https://www.cnipr.com" target="_blank">cnipr.com</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>ICJ 国际法院</h2></div><a href="https://www.icj-cij.org" target="_blank">icj-cij.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>UNTC 联合国条约集</h2></div><a href="https://treaties.un.org" target="_blank">treaties.un.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>HeinOnline (法律期刊)</h2></div><a href="https://home.heinonline.org" target="_blank">heinonline.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Westlaw</h2></div><a href="https://www.westlaw.com" target="_blank">westlaw.com</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>LexisNexis</h2></div><a href="https://www.lexisnexis.com" target="_blank">lexisnexis.com</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 社会 Society ========== -->
+    <div class="category-section category-society">
+      <div class="category-title">
+        👥 社会 · 人口 · 人类学 · 社会工作
+        <span>· 城市化 · 福利 · 性别</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>👥</span><h2>国家人口与健康科学数据中心</h2></div><a href="https://www.ncmi.cn" target="_blank">ncmi.cn</a></div>
+        <div class="card"><div class="card-header"><span>👥</span><h2>中国社会学会</h2></div><a href="https://www.csa.org.cn" target="_blank">csa.org.cn</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Population Reference Bureau</h2></div><a href="https://www.prb.org" target="_blank">prb.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>UN DESA 社会事务</h2></div><a href="https://www.un.org/development/desa" target="_blank">un.org/desa</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>World Social Protection Report</h2></div><a href="https://www.ilo.org/global/publications/books/WCMS_817653" target="_blank">ilo.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>American Sociological Review</h2></div><a href="https://journals.sagepub.com/home/asr" target="_blank">sagepub.com/asr</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 科技 Technology ========== -->
+    <div class="category-section category-tech">
+      <div class="category-title">
+        🔬 科技 · 工程 · 计算机
+        <span>· AI · 材料 · 能源 · 通信</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>🔬</span><h2>国家科技部</h2></div><a href="https://www.most.gov.cn" target="_blank">most.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>🔬</span><h2>中国科学技术协会</h2></div><a href="https://www.cast.org.cn" target="_blank">cast.org.cn</a></div>
+        <div class="card"><div class="card-header"><span>🔬</span><h2>国家知识产权局</h2></div><a href="https://www.cnipa.gov.cn" target="_blank">cnipa.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>IEEE Xplore</h2></div><a href="https://ieeexplore.ieee.org" target="_blank">ieeexplore.ieee.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>ACM Digital Library</h2></div><a href="https://dl.acm.org" target="_blank">dl.acm.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Nature (科学)</h2></div><a href="https://www.nature.com" target="_blank">nature.com</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Science</h2></div><a href="https://www.science.org" target="_blank">science.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>arXiv (预印本)</h2></div><a href="https://arxiv.org" target="_blank">arxiv.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Scopus (科技)</h2></div><a href="https://www.scopus.com" target="_blank">scopus.com</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Web of Science (科技)</h2></div><a href="https://www.webofscience.com" target="_blank">webofscience.com</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 环境 Environment ========== -->
+    <div class="category-section category-environment">
+      <div class="category-title">
+        🌍 环境 · 生态 · 地理
+        <span>· 气候变化 · 能源 · 可持续</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>🌍</span><h2>生态环境部</h2></div><a href="https://www.mee.gov.cn" target="_blank">mee.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>🌍</span><h2>国家气象局</h2></div><a href="https://www.cma.gov.cn" target="_blank">cma.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>🌍</span><h2>UNEP 联合国环境署</h2></div><a href="https://www.unep.org" target="_blank">unep.org</a></div>
+        <div class="card"><div class="card-header"><span>🌍</span><h2>IPCC 气候变化</h2></div><a href="https://www.ipcc.ch" target="_blank">ipcc.ch</a></div>
+        <div class="card"><div class="card-header"><span>🌍</span><h2>Nature Climate Change</h2></div><a href="https://www.nature.com/nclimate" target="_blank">nature.com/nclimate</a></div>
+        <div class="card"><div class="card-header"><span>🌍</span><h2>Environmental Science & Technology</h2></div><a href="https://pubs.acs.org/journal/esthag" target="_blank">acs.org/esthag</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 教育 Education ========== -->
+    <div class="category-section category-education">
+      <div class="category-title">
+        🎓 教育 · 心理学 · 体育
+        <span>· 高等教育 · 政策 · 学习科学</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>🎓</span><h2>教育部</h2></div><a href="https://www.moe.gov.cn" target="_blank">moe.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>🎓</span><h2>中国高等教育学会</h2></div><a href="https://www.hie.edu.cn" target="_blank">hie.edu.cn</a></div>
+        <div class="card"><div class="card-header"><span>🎓</span><h2>中国知网 (教育)</h2></div><a href="https://www.cnki.net" target="_blank">cnki.net</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>ERIC 教育资源</h2></div><a href="https://eric.ed.gov" target="_blank">eric.ed.gov</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>OECD Education</h2></div><a href="https://www.oecd.org/education" target="_blank">oecd.org/education</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>UNESCO 教育</h2></div><a href="https://en.unesco.org/themes/education" target="_blank">unesco.org/education</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>American Educational Research Journal</h2></div><a href="https://journals.sagepub.com/home/aer" target="_blank">sagepub.com/aer</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 历史 History ========== -->
+    <div class="category-section category-history">
+      <div class="category-title">
+        📜 历史 · 考古 · 博物馆学
+        <span>· 档案 · 文明史 · 区域史</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>📜</span><h2>国家档案局</h2></div><a href="https://www.saac.gov.cn" target="_blank">saac.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>🏛️</span><h2>中国历史研究院</h2></div><a href="https://www.history.cn" target="_blank">history.cn</a></div>
+        <div class="card"><div class="card-header"><span>🏛️</span><h2>故宫博物院</h2></div><a href="https://www.dpm.org.cn" target="_blank">dpm.org.cn</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>American Historical Review</h2></div><a href="https://academic.oup.com/ahr" target="_blank">oup.com/ahr</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Past & Present</h2></div><a href="https://academic.oup.com/past" target="_blank">oup.com/past</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Journal of World History</h2></div><a href="https://www.journals.uchicago.edu/toc/jwh/current" target="_blank">uchicago.edu/jwh</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 哲学 Philosophy ========== -->
+    <div class="category-section category-philosophy">
+      <div class="category-title">
+        🧠 哲学 · 逻辑 · 伦理学
+        <span>· 中国哲学 · 西方哲学 · 宗教学</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>🧠</span><h2>中国哲学史学会</h2></div><a href="https://zgsx.whu.edu.cn" target="_blank">zgsx.whu.edu.cn</a></div>
+        <div class="card"><div class="card-header"><span>🧠</span><h2>中国社会科学院哲学所</h2></div><a href="https://philosophy.cass.cn" target="_blank">philosophy.cass.cn</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Stanford Encyclopedia of Philosophy</h2></div><a href="https://plato.stanford.edu" target="_blank">plato.stanford.edu</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Internet Encyclopedia of Philosophy</h2></div><a href="https://iep.utm.edu" target="_blank">iep.utm.edu</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Philosophy Compass</h2></div><a href="https://compass.onlinelibrary.wiley.com/journal/17479991" target="_blank">wiley.com/philosophy</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Journal of Philosophy</h2></div><a href="https://www.journalofphilosophy.org" target="_blank">journalofphilosophy.org</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 传媒 Communication ========== -->
+    <div class="category-section category-communication">
+      <div class="category-title">
+        📻 新闻传播 · 广告 · 影视
+        <span>· 媒介研究 · 数字媒体 · 传播学</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>📻</span><h2>中国新闻传播学网</h2></div><a href="https://www.cjc.com.cn" target="_blank">cjc.com.cn</a></div>
+        <div class="card"><div class="card-header"><span>📻</span><h2>人民网 (传媒)</h2></div><a href="https://media.people.com.cn" target="_blank">media.people.com.cn</a></div>
+        <div class="card"><div class="card-header"><span>📻</span><h2>中国网 (新闻)</h2></div><a href="https://www.china.org.cn" target="_blank">china.org.cn</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Journal of Communication</h2></div><a href="https://academic.oup.com/joc" target="_blank">oup.com/joc</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Communication Research</h2></div><a href="https://journals.sagepub.com/home/crx" target="_blank">sagepub.com/crx</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>New Media & Society</h2></div><a href="https://journals.sagepub.com/home/nms" target="_blank">sagepub.com/nms</a></div>
+      </div>
+    </div>
+
+    <!-- ========== 军事 Military ========== -->
+    <div class="category-section category-military">
+      <div class="category-title">
+        ⚔️ 军事 · 战略 · 国防
+        <span>· 安全研究 · 军备 · 战争史</span>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="card-header"><span>⚔️</span><h2>中华人民共和国国防部</h2></div><a href="https://www.mod.gov.cn" target="_blank">mod.gov.cn</a></div>
+        <div class="card"><div class="card-header"><span>⚔️</span><h2>军事科学院</h2></div><a href="https://www.amsc.ac.cn" target="_blank">amsc.ac.cn</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>IISS 国际战略研究所</h2></div><a href="https://www.iiss.org" target="_blank">iiss.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>SIPRI 斯德哥尔摩和平研究所</h2></div><a href="https://www.sipri.org" target="_blank">sipri.org</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Military Balance (IISS)</h2></div><a href="https://www.iiss.org/publications/the-military-balance" target="_blank">iiss.org/military-balance</a></div>
+        <div class="card"><div class="card-header"><span>🌐</span><h2>Journal of Strategic Studies</h2></div><a href="https://www.tandfonline.com/toc/fjss20/current" target="_blank">tandfonline.com/jss</a></div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <span>🔍 学术导航 · 120+ 中英文论文资料网站 ·</span>
+      <span><a href="#">经济</a></span>
+      <span><a href="#">文化</a></span>
+      <span><a href="#">政治</a></span>
+      <span><a href="#">法律</a></span>
+      <span><a href="#">社会</a></span>
+      <span><a href="#">科技</a></span>
+      <span><a href="#">环境</a></span>
+      <span><a href="#">教育</a></span>
+      <span><a href="#">历史</a></span>
+      <span><a href="#">哲学</a></span>
+      <span><a href="#">传媒</a></span>
+      <span><a href="#">军事</a></span>
+    </div>
+  </div>
+</body>
+</html>
