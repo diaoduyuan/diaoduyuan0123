@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>超级导航 · 动漫|资讯|AI|电商|影音|购物 一站式入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f1f4fb;
+            font-family: 'Segoe UI', 'SF Pro Text', 'PingFang SC', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            padding: 24px 20px 48px;
+            color: #1e2a3a;
+        }
+
+        /* 主容器 */
+        .master-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 252, 0.92);
+            backdrop-filter: blur(6px);
+            border-radius: 56px;
+            box-shadow: 0 20px 36px -12px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            border: 1px solid #e8ddce;
+        }
+
+        /* 头部 */
+        .global-header {
+            padding: 24px 32px 16px 32px;
+            border-bottom: 1px solid #e9ddce;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: #fffcf7;
+        }
+        .title-section h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c2410c, #e07a2c, #b45309);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .title-section p {
+            color: #896e4e;
+            margin-top: 6px;
+            font-size: 0.85rem;
+        }
+        .date-badge {
+            background: #f0eadf;
+            padding: 6px 20px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #b85b1e;
+        }
+
+        /* 巨型选项卡栏 */
+        .mega-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            background: #fffcf5;
+            border-bottom: 1px solid #f0e2d2;
+            padding: 0 28px;
+            gap: 8px;
+        }
+        .tab-btn {
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #937b5c;
+            border-radius: 40px 40px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tab-btn:hover {
+            background: #fef2e4;
+            color: #d4832b;
+        }
+        .tab-btn.active {
+            background: #fffaf2;
+            color: #cd7a2e;
+            border-bottom: 3px solid #ecb176;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.02);
+        }
+
+        /* 内容窗格 */
+        .pane {
+            display: none;
+            padding: 32px 32px 40px;
+            background: #fffefaf5;
+            animation: fadein 0.25s;
+        }
+        .pane.active-pane {
+            display: block;
+        }
+        @keyframes fadein {
+            from { opacity: 0; transform: translateY(6px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* 通用分区 & 卡片 */
+        .section {
+            background: #ffffffdd;
+            border-radius: 32px;
+            padding: 20px 26px;
+            margin-bottom: 28px;
+            border: 1px solid #efe2d0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            border-left: 5px solid;
+            padding-left: 18px;
+        }
+        .section-title h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        .card {
+            flex: 1 1 170px;
+            min-width: 155px;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 16px 14px;
+            transition: all 0.2s;
+            border: 1px solid #e9ddce;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            background: #fffdf7;
+            border-color: #e2bc86;
+            box-shadow: 0 14px 20px -10px rgba(0, 0, 0, 0.1);
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #4e3a25;
+        }
+        .card p {
+            font-size: 0.7rem;
+            color: #8f775b;
+            line-height: 1.35;
+        }
+        .badge-mini {
+            display: inline-block;
+            background: #efe6db;
+            font-size: 0.65rem;
+            padding: 3px 10px;
+            border-radius: 40px;
+            margin-top: 10px;
+            color: #b3632a;
+        }
+
+        /* AI 大模型专用卡片 */
+        .ai-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+        .ai-card {
+            flex: 1 1 260px;
+            background: white;
+            border-radius: 32px;
+            padding: 18px;
+            border: 1px solid #e8d9c6;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .ai-card:hover {
+            transform: translateY(-4px);
+            border-color: #cfaa7a;
+            box-shadow: 0 12px 20px -12px rgba(0,0,0,0.12);
+        }
+        .ai-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .ai-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .company {
+            font-size: 0.65rem;
+            background: #efe3d4;
+            padding: 2px 10px;
+            border-radius: 60px;
+        }
+        .scene {
+            background: #eef2fa;
+            padding: 5px 12px;
+            border-radius: 28px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 12px 0;
+            color: #316794;
+        }
+        .features {
+            list-style: none;
+            margin: 8px 0 12px;
+        }
+        .features li {
+            font-size: 0.75rem;
+            padding: 3px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 0.7rem;
+            color: #b1946c;
+            border-top: 1px dashed #e2d4c2;
+            padding-top: 22px;
+        }
+
+        @media (max-width: 700px) {
+            .global-header { padding: 18px; }
+            .mega-tabs { padding: 0 12px; }
+            .tab-btn { padding: 10px 16px; font-size: 0.85rem; }
+            .pane { padding: 20px; }
+            .card { min-width: 140px; }
+        }
+    </style>
+</head>
+<body>
+<div class="master-container">
+    <div class="global-header">
+        <div class="title-section">
+            <h1>🚀 全能导航枢纽 · 次元|资讯|AI|购物|影音</h1>
+            <p>ACG动漫 · 新闻媒体 · AI大模型 · 电商购物 · 影音娱乐 ｜ 点击卡片直达官方</p>
+        </div>
+        <div class="date-badge" id="globalDate">📅 2026年4月25日 周六</div>
+    </div>
+
+    <div class="mega-tabs">
+        <button class="tab-btn active" data-pane="animeTab">🎬 ACG·动漫</button>
+        <button class="tab-btn" data-pane="newsTab">📰 新闻·资讯</button>
+        <button class="tab-btn" data-pane="aiTab">🤖 AI大模型</button>
+        <button class="tab-btn" data-pane="shopTab">🛍️ 电商购物</button>
+        <button class="tab-btn" data-pane="mediaTab">🎞️ 影音娱乐</button>
+    </div>
+
+    <!-- ========================= 1. ACG 动漫板块 ========================= -->
+    <div id="animePane" class="pane active-pane">
+        <div class="section">
+            <div class="section-title" style="border-left-color:#d44c2f;"><span>🍥</span><h2>动漫影视 · 在线看番</h2></div>
+            <div class="grid" id="animeGrid"></div>
+        </div>
+        <div class="section">
+            <div class="section-title" style="border-left-color:#0077b6;"><span>🌍</span><h2>欧美流媒 · 全球动画</h2></div>
+            <div class="grid" id="globalStreamGrid"></div>
+        </div>
+        <div class="section">
+            <div class="section-title" style="border-left-color:#16a34a;"><span>📘</span><h2>漫画·条漫·轻小说</h2></div>
+            <div class="grid" id="comicGrid"></div>
+        </div>
+        <div class="section">
+            <div class="section-title" style="border-left-color:#a855f7;"><span>💬</span><h2>弹幕文化 · 同好基地</h2></div>
+            <div class="grid" id="danmakuGrid"></div>
+        </div>
+    </div>
+
+    <!-- ========================= 2. 新闻资讯板块 ========================= -->
+    <div id="newsPane" class="pane">
+        <div class="section"><div class="section-title" style="border-left-color:#3b82f6;"><span>🔥</span><h2>热点·综合资讯</h2></div><div class="grid" id="generalNewsGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#10b981;"><span>📊</span><h2>财经·商业洞察</h2></div><div class="grid" id="businessNewsGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#8b5cf6;"><span>💡</span><h2>科技·数码先锋</h2></div><div class="grid" id="techNewsGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#f59e0b;"><span>🌍</span><h2>国际视野</h2></div><div class="grid" id="intlNewsGrid"></div></div>
+    </div>
+
+    <!-- ========================= 3. AI 大模型板块（已加入扣子Coze） ========================= -->
+    <div id="aiPane" class="pane">
+        <div class="ai-grid" id="aiModelsGrid"></div>
+        <div class="footer-note">🌟 点击任意模型卡片直达官网 · 国内顶尖AI 推理/长文本/多模态/智能体平台全覆盖</div>
+    </div>
+
+    <!-- ========================= 4. 电商购物板块 ========================= -->
+    <div id="shopPane" class="pane">
+        <div class="section"><div class="section-title" style="border-left-color:#f97316;"><span>🏬</span><h2>综合电商 · 全品类航母</h2></div><div class="grid" id="comprehensiveGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#3b82f6;"><span>♻️</span><h2>二手·闲置流转</h2></div><div class="grid" id="secondhandGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#10b981;"><span>📦</span><h2>批发采购·源头货源</h2></div><div class="grid" id="wholesaleGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#ec489a;"><span>🥬</span><h2>生鲜·即时到家</h2></div><div class="grid" id="freshGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#8b5cf6;"><span>🎯</span><h2>垂直品类 · 专业精选</h2></div><div class="grid" id="verticalGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#06b6d4;"><span>✈️</span><h2>跨境海淘 · 全球好物</h2></div><div class="grid" id="crossborderGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#d97706;"><span>💎</span><h2>会员制·精品超市 & 学习平台</h2></div><div class="grid" id="membershipGrid"></div></div>
+    </div>
+
+    <!-- ========================= 5. 影音娱乐板块 ========================= -->
+    <div id="mediaPane" class="pane">
+        <div class="section"><div class="section-title" style="border-left-color:#3b82f6;"><span>🎥</span><h2>纪录片 · 真实世界</h2></div><div class="grid" id="docuGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#ec489a;"><span>🍿</span><h2>热播剧集 · 影院时刻</h2></div><div class="grid" id="tvGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#10b981;"><span>📚</span><h2>知识课程 · 终身学习</h2></div><div class="grid" id="knowledgeGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#f97316;"><span>📱</span><h2>短视频·生活灵感</h2></div><div class="grid" id="shortGrid"></div></div>
+        <div class="section"><div class="section-title" style="border-left-color:#8b5cf6;"><span>🎭</span><h2>弹幕&综艺 · 快乐源泉</h2></div><div class="grid" id="varietyGrid"></div></div>
+    </div>
+
+    <div class="footer-note" style="border-top: 1px solid #e2cfb3; margin-top: 0;">✨ 覆盖动漫、新闻、AI、电商、影音五大领域 · 所有站点均官方直达，便捷实用</div>
+</div>
+
+<script>
+    // 日期 2026.04.25
+    const today = new Date(2026, 3, 25);
+    const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    document.getElementById('globalDate').innerHTML = `📅 ${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日 ${weekdays[today.getDay()]}`;
+    function openLink(url) { if(url) window.open(url, '_blank', 'noopener,noreferrer'); }
+
+    function renderCardGrid(containerId, sites) {
+        const c = document.getElementById(containerId);
+        if(!c) return;
+        c.innerHTML = '';
+        sites.forEach(s => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.setAttribute('data-url', s.url);
+            card.innerHTML = `<div class="card-icon">${s.icon}</div><h3>${s.name}</h3><p>${s.desc}</p><div class="badge-mini">直达官网 →</div>`;
+            card.onclick = () => openLink(s.url);
+            c.appendChild(card);
+        });
+    }
+
+    // ------------------- 动漫数据 -------------------
+    const animeSites = [
+        { name: "AGE动漫", desc: "老牌动漫站，资源丰富", url: "https://www.agefans.tv", icon: "🎞️" },
+        { name: "喵物次元", desc: "二次元动漫+弹幕社区", url: "https://www.miaowuc.cn", icon: "🐱" },
+        { name: "OmoFun", desc: "在线动漫番剧齐全", url: "https://www.omofun.tv", icon: "🌸" },
+        { name: "咕咕番", desc: "追番交流界面清爽", url: "https://www.gugufan.com", icon: "🐦" },
+        { name: "樱花动漫", desc: "经典动漫站稳定", url: "https://www.yhdm.tv", icon: "🌸" },
+        { name: "C站(tucao)", desc: "弹幕吐槽二次元社区", url: "https://www.tucao.tv", icon: "💢" }
+    ];
+    const globalStream = [
+        { name: "Crunchyroll", desc: "欧美主流，免费带广告", url: "https://www.crunchyroll.com", icon: "🍣" },
+        { name: "Netflix", desc: "付费流媒体原创动画", url: "https://www.netflix.com", icon: "🎬" },
+        { name: "Disney+", desc: "迪士尼动画+原创动漫", url: "https://www.disneyplus.com", icon: "🏰" }
+    ];
+    const comicSites = [
+        { name: "快看漫画", desc: "国漫条漫社区", url: "https://www.kuaikanmanhua.com", icon: "💖" },
+        { name: "哔哩哔哩漫画", desc: "正版日漫/国漫", url: "https://manga.bilibili.com", icon: "📘" },
+        { name: "咪咕视频动漫", desc: "咪咕动漫&漫画专区", url: "https://www.miguvideo.com", icon: "🎨" }
+    ];
+    const danmakuSites = [
+        { name: "AcFun (A站)", desc: "弹幕鼻祖二次元社区", url: "https://www.acfun.cn", icon: "🔴" },
+        { name: "B站 (哔哩哔哩)", desc: "弹幕文化代表", url: "https://www.bilibili.com", icon: "🟣" },
+        { name: "C站(tucao)", desc: "弹幕吐槽聚集地", url: "https://www.tucao.tv", icon: "💬" }
+    ];
+    renderCardGrid('animeGrid', animeSites);
+    renderCardGrid('globalStreamGrid', globalStream);
+    renderCardGrid('comicGrid', comicSites);
+    renderCardGrid('danmakuGrid', danmakuSites);
+
+    // ------------------- 新闻数据 -------------------
+    const generalNews = [
+        { name: "澎湃新闻", desc: "深度报道上海本地", url: "https://www.thepaper.cn", icon: "🌊" },
+        { name: "界面新闻", desc: "商业财经内容", url: "https://www.jiemian.com", icon: "📰" },
+        { name: "今日头条", desc: "算法推荐资讯", url: "https://www.toutiao.com", icon: "📱" },
+        { name: "网易新闻", desc: "评论精彩娱乐向", url: "https://news.163.com", icon: "🎭" },
+        { name: "腾讯新闻", desc: "综合全面更新快", url: "https://news.qq.com", icon: "🐧" }
+    ];
+    const businessNews = [
+        { name: "财新网", desc: "深度调查", url: "https://www.caixin.com", icon: "🔍" },
+        { name: "第一财经", desc: "专业财经", url: "https://www.yicai.com", icon: "📈" },
+        { name: "36氪", desc: "科技创投", url: "https://36kr.com", icon: "⚡" },
+        { name: "虎嗅", desc: "商业分析观点", url: "https://www.huxiu.com", icon: "🐅" }
+    ];
+    const techNews = [
+        { name: "36氪", desc: "创投融资新闻", url: "https://36kr.com", icon: "🚀" },
+        { name: "虎嗅", desc: "商业科技深度", url: "https://www.huxiu.com", icon: "🧠" },
+        { name: "IT之家", desc: "数码科技资讯", url: "https://www.ithome.com", icon: "💻" },
+        { name: "少数派", desc: "效率工具推荐", url: "https://sspai.com", icon: "⚙️" }
+    ];
+    const intlNews = [
+        { name: "BBC中文", desc: "国际视角", url: "https://www.bbc.com/zhongwen", icon: "🌐" },
+        { name: "纽约时报中文网", desc: "深度报道", url: "https://cn.nytimes.com", icon: "🗽" },
+        { name: "路透社", desc: "财经国际资讯", url: "https://www.reuters.com", icon: "📡" }
+    ];
+    renderCardGrid('generalNewsGrid', generalNews);
+    renderCardGrid('businessNewsGrid', businessNews);
+    renderCardGrid('techNewsGrid', techNews);
+    renderCardGrid('intlNewsGrid', intlNews);
+
+    // ------------------- AI 大模型 (9款，已加入扣子Coze) -------------------
+    const aiModels = [
+        { name:"扣子 Coze", company:"字节跳动", scene:"智能体搭建、AI Bot", features:["零代码搭建智能体","插件/知识库/工作流","一键发布飞书/抖音/微信","免费使用"], url:"https://www.coze.cn", icon:"⚡" },
+        { name:"DeepSeek", company:"深度求索", scene:"逻辑推理、代码、数学", features:["开源性价比高","推理能力强","128K上下文"], url:"https://chat.deepseek.com", icon:"🧠" },
+        { name:"豆包", company:"字节跳动", scene:"中文写作、日常对话", features:["月活最高免费","多模态轻量","日常陪伴"], url:"https://www.doubao.com", icon:"🍬" },
+        { name:"Kimi", company:"月之暗面", scene:"超长文档、论文阅读", features:["200万字上下文","长文本王者","免费"], url:"https://kimi.moonshot.cn", icon:"📚" },
+        { name:"通义千问", company:"阿里巴巴", scene:"办公文档、多模态", features:["企业办公整合","图视频理解强","通义听悟"], url:"https://tongyi.aliyun.com", icon:"🔮" },
+        { name:"文心一言", company:"百度", scene:"中文知识问答", features:["百度生态＋搜索增强","知识图谱丰富"], url:"https://yiyan.baidu.com", icon:"🐋" },
+        { name:"元宝", company:"腾讯", scene:"联网搜索、微信生态", features:["深度整合微信","实时检索","社交场景"], url:"https://yuanbao.tencent.com", icon:"💬" },
+        { name:"智谱清言", company:"智谱AI", scene:"科研写作", features:["清华背景","学术向","逻辑严谨"], url:"https://chatglm.cn", icon:"⚛️" },
+        { name:"讯飞星火", company:"科大讯飞", scene:"语音交互、教育", features:["语音识别第一","教育场景","学习助手"], url:"https://xinghuo.xfyun.cn", icon:"🎙️" }
+    ];
+    const aiContainer = document.getElementById('aiModelsGrid');
+    if(aiContainer){
+        aiModels.forEach(t => {
+            const card = document.createElement('div'); card.className = 'ai-card';
+            const featHtml = t.features.map(f => `<li>✨ ${f}</li>`).join('');
+            card.innerHTML = `<div class="ai-header"><div class="ai-name">${t.icon} ${t.name}</div><div class="company">${t.company}</div></div>
+            <div class="scene">🎯 最强场景：${t.scene}</div><ul class="features">${featHtml}</ul><div style="text-align:right; color:#b7793a; font-size:0.75rem;">点击直达 →</div>`;
+            card.onclick = () => openLink(t.url);
+            aiContainer.appendChild(card);
+        });
+    }
+
+    // ------------------- 电商购物数据 -------------------
+    const comprehensive = [
+        { name:"淘宝", desc:"国民级全品类", url:"https://www.taobao.com", icon:"🛒" }, { name:"京东", desc:"物流快售后稳", url:"https://www.jd.com", icon:"🐶" },
+        { name:"拼多多", desc:"百亿补贴性价比", url:"https://www.pinduoduo.com", icon:"🎁" }, { name:"抖音商城", desc:"直播电商", url:"https://www.douyin.com", icon:"🎵" },
+        { name:"天猫", desc:"品牌旗舰店", url:"https://www.tmall.com", icon:"🐱" }
+    ];
+    const secondhand = [
+        { name:"闲鱼", desc:"阿里二手C2C", url:"https://www.goofish.com", icon:"🐟" },{ name:"转转", desc:"二手数码验机", url:"https://www.zhuanzhuan.com", icon:"🔄" },
+        { name:"95分", desc:"球鞋潮品鉴定", url:"https://www.95fen.com", icon:"👟" },{ name:"红布林", desc:"二手奢侈品", url:"https://www.hongbulin.com", icon:"👜" }
+    ];
+    const wholesale = [
+        { name:"1688阿里巴巴", desc:"源头工厂批发", url:"https://www.1688.com", icon:"🏭" },{ name:"义乌购", desc:"小商品批发", url:"https://www.yiwugo.com", icon:"📦" }
+    ];
+    const fresh = [
+        { name:"盒马", desc:"生鲜30分钟达", url:"https://www.freshhema.com", icon:"🦛" },{ name:"京东到家", desc:"超市1小时达", url:"https://www.jddj.com", icon:"🚚" },
+        { name:"山姆会员商店", desc:"大包装高品质", url:"https://www.samsclub.cn", icon:"🏛️" },{ name:"1号会员店", desc:"京东旗下会员", url:"https://www.yihaodian.com", icon:"🥩" },
+        { name:"叮咚买菜", desc:"前置仓极速", url:"https://www.dingdongmaicai.com", icon:"🥬" }
+    ];
+    const vertical = [
+        { name:"得物", desc:"球鞋潮玩鉴定", url:"https://www.dewu.com", icon:"👟" },{ name:"唯品会", desc:"品牌特卖", url:"https://www.vip.com", icon:"🎀" },
+        { name:"丝芙兰", desc:"美妆护肤", url:"https://www.sephora.cn", icon:"💄" },{ name:"孩子王", desc:"母婴全品类", url:"https://www.haiziwang.com", icon:"👶" },
+        { name:"小米商城", desc:"小米生态链", url:"https://www.mi.com", icon:"📱" },{ name:"小米有品", desc:"精品生活", url:"https://www.xiaomiyoupin.com", icon:"🏠" },
+        { name:"华为商城", desc:"官方渠道", url:"https://www.vmall.com", icon:"📡" },{ name:"i茅台", desc:"茅台预约", url:"https://www.imaotai.com", icon:"🍶" },
+        { name:"途虎养车", desc:"汽车保养", url:"https://www.tuhu.cn", icon:"🚗" },{ name:"当当", desc:"图书百货", url:"https://www.dangdang.com", icon:"📚" },
+        { name:"孔夫子旧书网", desc:"古籍二手书", url:"https://www.kongfz.com", icon:"📖" }
+    ];
+    const crossborder = [
+        { name:"亚马逊购物", desc:"海外直邮", url:"https://www.amazon.cn", icon:"📦" },{ name:"天猫国际", desc:"保税仓正品", url:"https://www.tmall.hk", icon:"🌏" },
+        { name:"中免日上", desc:"免税商品", url:"https://www.cdfgs.com", icon:"✈️" },{ name:"SHEIN", desc:"快时尚", url:"https://www.shein.com", icon:"👗" },
+        { name:"Temu", desc:"拼多多海外版", url:"https://www.temu.com", icon:"🌐" }
+    ];
+    const membership = [
+        { name:"网易严选", desc:"生活好物", url:"https://www.you.163.com", icon:"🏷️" },{ name:"Costco开市客", desc:"会员仓储", url:"https://www.costco.com.cn", icon:"🏬" },
+        { name:"麦德龙", desc:"大包装批发", url:"https://www.metromall.cn", icon:"🏪" },{ name:"umu学习平台", desc:"企业培训互动", url:"https://www.umu.cn/index#/index", icon:"📚" }
+    ];
+    renderCardGrid('comprehensiveGrid', comprehensive);
+    renderCardGrid('secondhandGrid', secondhand);
+    renderCardGrid('wholesaleGrid', wholesale);
+    renderCardGrid('freshGrid', fresh);
+    renderCardGrid('verticalGrid', vertical);
+    renderCardGrid('crossborderGrid', crossborder);
+    renderCardGrid('membershipGrid', membership);
+
+    // ------------------- 影音娱乐数据 -------------------
+    const docu = [
+        { name:"B站纪录片", desc:"免费资源多", url:"https://www.bilibili.com/v/documentary", icon:"📽️" },{ name:"央视频", desc:"央视纪录片", url:"https://yangshipin.cn", icon:"📡" },
+        { name:"爱奇艺纪录片", desc:"BBC国家地理", url:"https://www.iqiyi.com/jilupian/", icon:"🌍" }
+    ];
+    const tv = [
+        { name:"爱奇艺", desc:"正版会员", url:"https://www.iqiyi.com", icon:"🎬" },{ name:"腾讯视频", desc:"海量剧集", url:"https://v.qq.com", icon:"🐧" },
+        { name:"优酷", desc:"经典剧集", url:"https://www.youku.com", icon:"🌈" },{ name:"Netflix", desc:"美剧原创", url:"https://www.netflix.com", icon:"🎞️" },
+        { name:"Apple TV+", desc:"苹果原创", url:"https://tv.apple.com", icon:"🍎" }
+    ];
+    const knowledge = [
+        { name:"B站知识区", desc:"科普硬核", url:"https://www.bilibili.com/v/knowledge", icon:"🧠" },{ name:"慕课网", desc:"编程课程", url:"https://www.imooc.com", icon:"💻" },
+        { name:"网易公开课", desc:"TED/名校", url:"https://open.163.com", icon:"🎓" },{ name:"中国大学MOOC", desc:"大学免费", url:"https://www.icourse163.org", icon:"🏫" }
+    ];
+    const shortVid = [
+        { name:"抖音", desc:"算法推荐", url:"https://www.douyin.com", icon:"🎵" },{ name:"快手", desc:"直播多元", url:"https://www.kuaishou.com", icon:"🎨" },
+        { name:"小红书", desc:"生活分享", url:"https://www.xiaohongshu.com", icon:"📖" }
+    ];
+    const variety = [
+        { name:"B站", desc:"弹幕鬼畜", url:"https://www.bilibili.com", icon:"🪶" },{ name:"爱奇艺", desc:"综艺动漫", url:"https://www.iqiyi.com", icon:"🎬" },
+        { name:"腾讯视频", desc:"综艺体育", url:"https://v.qq.com", icon:"🐧" },{ name:"优酷", desc:"老剧纪录片", url:"https://www.youku.com", icon:"📀" },
+        { name:"芒果TV", desc:"湖南卫视", url:"https://www.mgtv.com", icon:"🥭" }
+    ];
+    renderCardGrid('docuGrid', docu); renderCardGrid('tvGrid', tv); renderCardGrid('knowledgeGrid', knowledge);
+    renderCardGrid('shortGrid', shortVid); renderCardGrid('varietyGrid', variety);
+
+    // ------------------- 选项卡切换 -------------------
+    const btns = document.querySelectorAll('.tab-btn');
+    const panes = {
+        animeTab: document.getElementById('animePane'),
+        newsTab: document.getElementById('newsPane'),
+        aiTab: document.getElementById('aiPane'),
+        shopTab: document.getElementById('shopPane'),
+        mediaTab: document.getElementById('mediaPane')
+    };
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-pane');
+            Object.values(panes).forEach(p => p.classList.remove('active-pane'));
+            if(panes[target]) panes[target].classList.add('active-pane');
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>
